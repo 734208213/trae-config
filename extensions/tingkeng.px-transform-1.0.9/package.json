@@ -1,0 +1,130 @@
+{
+	"name": "px-transform",
+	"displayName": "px-transform",
+	"description": "convert one css unit to another, like px rem vw and so on",
+	"version": "1.0.9",
+	"publisher": "Tingkeng",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Formatters",
+		"Snippets",
+		"Other"
+	],
+	"keywords": [
+		"px",
+		"rpx",
+		"rem",
+		"convert",
+		"vw to vmin",
+		"css unit",
+		"px to rpx",
+		"px rem",
+		"px to rem",
+		"px2rem",
+		"rem to px",
+		"css rem",
+		"vmin",
+		"vmax",
+		"rpx to px",
+		"vw",
+		"vh",
+		"css",
+		"vw to px",
+		"px to vw",
+		"transform",
+		"calculate",
+		"em",
+		"cm",
+		"mm",
+		"in",
+		"pt",
+		"pc",
+		"ch",
+		"ex",
+		"wxss"
+	],
+	"activationEvents": [
+		"onCommand:px-transform.multiply"
+	],
+	"main": "./out/extension.js",
+	"icon": "source/logo.png",
+	"contributes": {
+		"configuration": {
+			"title": "px-transform",
+			"properties": {
+				"transform.multiplier": {
+					"type": "number",
+					"default": 2,
+					"description": "Multiplier. 乘以几"
+				},
+				"transform.targetUnit": {
+					"type": "string",
+					"default": "px",
+					"description": "The transformed unit. 转换后的单位"
+				},
+				"transform.sourceUnit": {
+					"type": "string",
+					"default": "px",
+					"description": "The unit before the transformation. 转换前的单位"
+				},
+				"transform.unitPrecision": {
+					"type": "integer",
+					"default": 3,
+					"description": "Maximum number of decimals digits after transformed. 运算结果保留几位小数"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "px-transform.multiply",
+				"title": "Perform a transform 进行转换"
+			},
+			{
+				"command": "px-transform.divide",
+				"title": "Perform a inverse transform 进行逆转换"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "px-transform.multiply",
+				"key": "Alt+z"
+			},
+			{
+				"command": "px-transform.divide",
+				"key": "Shift+Alt+z"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"build": "rollup -c",
+		"pretest": "npm run lint",
+		"compile": "tsc -p ./",
+		"test": "node ./dist/test/runTest.js",
+		"lint:js-fix": "eslint --fix ./src --ext .js,.ts",
+		"prettier:fix": "prettier --write ."
+	},
+	"devDependencies": {
+		"@rollup/plugin-typescript": "^11.1.4",
+		"@tkwang/fe-lint": "^1.0.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.51.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"eslint": "^8.2.0",
+		"prettier": "^2.6.2",
+		"rollup": "^3.29.3",
+		"typescript": "^4.9.5",
+		"vscode-test": "^1.4.0"
+	},
+	"repository": "https://github.com/tkaabbc/vscode-px-transform",
+	"__metadata": {
+		"installedTimestamp": 1776672847987,
+		"targetPlatform": "undefined",
+		"size": 1545695
+	}
+}

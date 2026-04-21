@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "es2017",
+    "module": "esnext",
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": false,
+    // "sourceMap": true,
+    "outDir": "./out",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "rootDir": ".",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types", "global.d.ts"]
+  },
+  "exclude": ["node_modules", ".vscode-test", "dist"],
+  "types": ["vscode"],
+  "compileOnSave": false
+}

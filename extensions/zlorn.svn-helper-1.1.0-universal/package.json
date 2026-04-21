@@ -1,0 +1,168 @@
+{
+	"name": "svn-helper",
+	"displayName": "TortoiseSVN Helper",
+	"description": "This is a TortoiseSVN Helper.",
+	"keywords": [
+		"SVN",
+		"TortoiseSVN",
+		"Zlorn"
+	],
+	"publisher": "Zlorn",
+	"version": "1.1.0",
+	"icon": "images/svn-512.png",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:zlorn.svn.update",
+		"onCommand:zlorn.svn.commit",
+		"onCommand:zlorn.svn.log",
+		"onCommand:zlorn.svn.diff",
+		"onCommand:zlorn.svn.rename",
+		"onCommand:zlorn.svn.revert",
+		"onCommand:zlorn.svn.blame"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "zlorn.svn.update",
+				"title": "SVN Update"
+			},
+			{
+				"command": "zlorn.svn.commit",
+				"title": "SVN Commit"
+			},
+			{
+				"command": "zlorn.svn.log",
+				"title": "Show log"
+			},
+			{
+				"command": "zlorn.svn.diff",
+				"title": "Diff with previous version"
+			},
+			{
+				"command": "zlorn.svn.rename",
+				"title": "Rename"
+			},
+			{
+				"command": "zlorn.svn.revert",
+				"title": "Revert"
+			},
+			{
+				"command": "zlorn.svn.blame",
+				"title": "Blame"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "zlorn.svn.update",
+				"key": "alt+u",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "zlorn.svn.commit",
+				"key": "alt+c",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "zlorn.svn.log",
+				"key": "alt+l",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "zlorn.svn.diff",
+				"key": "alt+d",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "zlorn.svn.blame",
+				"key": "alt+b",
+				"when": "editorTextFocus"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "zlorn.svn.update",
+					"when": "editorFocus",
+					"group": "svn@1"
+				},
+				{
+					"command": "zlorn.svn.commit",
+					"when": "editorFocus",
+					"group": "svn@2"
+				},
+				{
+					"submenu": "context.zlorn.svn",
+					"when": "editorFocus",
+					"group": "svn@3"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "zlorn.svn.update",
+					"group": "svn@1"
+				},
+				{
+					"command": "zlorn.svn.commit",
+					"group": "svn@2"
+				},
+				{
+					"submenu": "context.zlorn.svn",
+					"group": "svn@3"
+				}
+			],
+			"context.zlorn.svn": [
+				{
+					"command": "zlorn.svn.log",
+					"group": "svnSub@1"
+				},
+				{
+					"command": "zlorn.svn.diff",
+					"group": "svnSub@2"
+				},
+				{
+					"command": "zlorn.svn.rename",
+					"group": "svnSub@3"
+				},
+				{
+					"command": "zlorn.svn.revert",
+					"group": "svnSub@4"
+				},
+				{
+					"command": "zlorn.svn.blame",
+					"group": "svnSub@5"
+				}
+			]
+		},
+		"submenus": [
+			{
+				"id": "context.zlorn.svn",
+				"label": "TortoiseSVN"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"tslint": "^5.8.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	},
+	"__metadata": {
+		"installedTimestamp": 1776308322875,
+		"targetPlatform": "universal",
+		"size": 80056
+	}
+}
